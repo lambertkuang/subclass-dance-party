@@ -25,3 +25,11 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+.spinningDancer{
+  border-radius: 5px;
+  border-color: blue;
+}
+.slidingDancer{
+  border-color: green;
+  border-radius: 0;
+}
