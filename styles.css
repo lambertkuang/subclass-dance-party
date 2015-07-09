@@ -5,6 +5,8 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  background-image: url('background.jpg');
+  background-size: 100% 100%;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -26,6 +28,7 @@ body, a:link, a:visited, a:active{
   width: 50px;
   height: 50px;
   position:absolute;
+  transition: all 2s ease 0s;
 }
 
 .spinningDancer{
@@ -33,15 +36,6 @@ body, a:link, a:visited, a:active{
   border-color: blue;
 }
 
-.testBox{
-  width: 100px;
-  height: 100px;
-  background-color: red;
-  -webkit-animation: morph 5s infinite;
-  -moz-animation: morph 5s infinite;
-  -o-animation: morph 5s infinite;
-  animation: morph 5s infinite;
-}
 @-webkit-keyframes morph {
   0% {
     background-color: yellow;
@@ -84,11 +78,84 @@ body, a:link, a:visited, a:active{
 }
 
 .imageDancer {
-  background-image: url("bananaDancer.gif");
+  background-image: url("dance1.gif");
   border: none;
   height: 100px;
   width: 70px;
-  background-size: 70px 100px;
+  background-size: 100% 100%;
+  position: absolute;
+}
+.danceHead {
+  background-image: url("quagmire.jpg");
+  height: 40px;
+  width: 40px;
+  background-size: 100% 100%;
+  position: relative;
+  left: 40px;
+  -webkit-animation: headBob 2s infinite;
+  -moz-animation: headBob 2s infinite;
+  -o-animation: headBob 2s infinite;
+  animation: headBob 2s infinite;
+}
+@-webkit-keyframes headBob {
+  0% {
+    transform: translateX(-1em);
+  }
+  50% {
+    transform: translateX(-0.5em);
+    transform: translateY(-1em);
+  }
+  75% {
+    transform: translateX(1em);
+  }
+  100% {
+    transform: translateX(-1em);
+  }
+}
+@-moz-keyframes headBob {
+  0% {
+    transform: translateX(-1em);
+  }
+  50% {
+    transform: translateX(-0.5em);
+    transform: translateY(-1em);
+  }
+  75% {
+    transform: translateX(1em);
+  }
+  100% {
+    transform: translateX(-1em);
+  }
+}
+@-o-keyframes headBob {
+  0% {
+    transform: translateX(-1em);
+  }
+  50% {
+    transform: translateX(-0.5em);
+    transform: translateY(-1em);
+  }
+  75% {
+    transform: translateX(1em);
+  }
+  100% {
+    transform: translateX(-1em);
+  }
+}
+@keyframes headBob {
+  0% {
+    transform: translateX(-1em);
+  }
+  50% {
+    transform: translateX(-0.5em);
+    transform: translateY(-1em);
+  }
+  75% {
+    transform: translateX(1em);
+  }
+  100% {
+    transform: translateX(-1em);
+  }
 }
 .BouncingDancer {
 

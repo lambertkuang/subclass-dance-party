@@ -1,6 +1,5 @@
 var makeSpinningDancer = function(top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
-  //Use jquery to add class "spinningDancer"
   this.$node.addClass('spinningDancer');
   this.radius = 20;
 };

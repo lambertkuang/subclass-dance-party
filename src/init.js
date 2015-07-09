@@ -1,5 +1,42 @@
 $(document).ready(function(){
   window.dancers = [];
+  
+
+  var distanceThreshold = 75;
+  var checkPosition = function()
+  {
+    for(var i = 0; i < dancers.length; i++) {
+      if (dancers[i].$node.hasClass('BouncingDancer')) {
+        for(var j = 0; j < dancers.length; j++) {
+          if(i === j){
+            continue;
+          }
+          var distance = distanceBetweenDancers(dancers[i], dancers[j]);
+          if(distance < distanceThreshold) {
+            changeDancer(dancers[i], "green");
+            changeDancer(dancers[j], "green");
+          } 
+        }
+      }
+    }
+
+  };
+
+  var distanceBetweenDancers = function(dancerA, dancerB)
+  {
+    return Math.sqrt(Math.pow(dancerA.top - dancerB.top, 2) + 
+                        Math.pow(dancerA.left - dancerB.left, 2));
+  };
+
+  var changeDancer = function(dancer, color) {
+    dancer.$node.css("border-color", color);
+  };
+
+  setInterval(checkPosition, 100);
+  //Every 100 ms,
+    //Check all dancers
+      //If the dancer is close to another dancer
+        //do something
 
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
@@ -20,14 +57,18 @@ $(document).ready(function(){
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
     // make a dancer with a random position
-
+    var dancerHeight = 150;
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
+      $('body').height() - $("body").height() * .15*  Math.random() - dancerHeight,
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
     dancers.push(dancer);
     $('body').append(dancer.$node);
+
+    dancer.$node.mouseover(function() {
+      changeDancer(dancer, "blue");
+    });
   });
 
   $(".lineUpButton").on("click", function(event) {
@@ -37,15 +78,21 @@ $(document).ready(function(){
     //for each dancer
     for(var i = 0; i < dancers.length; i++) {
       var newX = i * spacing;
-      var newY = $('body').height() / 2;
+      var newY = $('body').height() * .65;
       //place that dancer at middle height & set horizontal position based on 
       //it's place in the array times the width found earlier.
       dancers[i].setCenter(newY, newX);
       dancers[i].setPosition(newY, newX);
     }
   });
-  $(".dancer").mouseover(function(event) {
-    debugger;
+  $(".flipOutButton").on("click", function(event) {
+    for (var i = 0; i < dancers.length; i++) {
+      if (dancers[i].$node.hasClass('flipped')) {
+        dancers[i].$node.removeClass('flipped');
+      } else {
+        dancers[i].$node.addClass('flipped');
+      }
+    }
   });
 });
 
