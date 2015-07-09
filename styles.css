@@ -23,13 +23,84 @@ body, a:link, a:visited, a:active{
 .dancer{
   border:10px solid red;
   border-radius:10px;
+  width: 50px;
+  height: 50px;
   position:absolute;
 }
+
 .spinningDancer{
   border-radius: 5px;
   border-color: blue;
 }
+
+.testBox{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  -webkit-animation: morph 5s infinite;
+  -moz-animation: morph 5s infinite;
+  -o-animation: morph 5s infinite;
+  animation: morph 5s infinite;
+}
+@-webkit-keyframes morph {
+  0% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: blue;
+  }
+}
+@-moz-keyframes morph {
+  0% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: blue;
+  }
+}
+@-o-keyframes morph {
+  0% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: blue;
+  }
+}
+@keyframes morph {
+  0% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: blue;
+  }
+}
 .slidingDancer{
   border-color: green;
   border-radius: 0;
+  -webkit-animation: morph 5s;
+  -moz-animation: morph 5s;
+  -o-animation: morph 5s;
+  animation: morph 5s;
 }
+
+.imageDancer {
+  background-image: url("bananaDancer.gif");
+  border: none;
+  height: 100px;
+  width: 70px;
+  background-size: 70px 100px;
+}
+.BouncingDancer {
+
+}
+.flipped {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+
+

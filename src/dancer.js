@@ -7,7 +7,9 @@ var makeDancer = function(top, left, timeBetweenSteps){
 
   // use jQuery to create an HTML <span> tag
   this.$node = $('<span class="dancer"></span>');
-  this.step();
+  //During the constructor, this is getting called before the subclass's constructor function
+  //has finished calling. What if instead we did setTimeout right here?
+  setTimeout(this.step.bind(this, this.timeBetweenSteps));
   this.setPosition(top, left);
 };
 

@@ -44,5 +44,8 @@ $(document).ready(function(){
       dancers[i].setPosition(newY, newX);
     }
   });
+  $(".dancer").mouseover(function(event) {
+    debugger;
+  });
 });
 
