@@ -3,7 +3,7 @@ var makeDancer = function(top, left, timeBetweenSteps){
 
   this.top;
   this.left;
-
+  this.pause = false;
   this.timeBetweenSteps = timeBetweenSteps;
 
   // use jQuery to create an HTML <span> tag
@@ -46,3 +46,4 @@ makeDancer.prototype.adjustPerspective = function() {
   this.$node.css("width", 200 * scale);
   this.$node.css("z-index", Math.floor(200 * scale));
 }
+

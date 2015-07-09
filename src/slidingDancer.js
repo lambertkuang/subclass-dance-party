@@ -9,6 +9,9 @@ makeSlidingDancer.prototype.constructor = makeSlidingDancer;
 
 makeSlidingDancer.prototype.step = function() {
   makeDancer.prototype.step.apply(this, arguments);
-  this.$node.css('border', this.size + 'px solid green');
+  this.$node.css({'height': this.size,
+    'width': this.size
+  });
+  this.setPosition(this.top, this.left);
   this.size++;
 };

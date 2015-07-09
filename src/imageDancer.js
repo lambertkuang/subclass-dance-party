@@ -1,6 +1,6 @@
 var ImageDancer = function(top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
-  this.$node.addClass('imageDancer bounce');
+  this.$node.addClass('imageDancer bounce animated');
 };
 ImageDancer.prototype = Object.create(makeDancer.prototype);
 ImageDancer.prototype.constructor = ImageDancer;

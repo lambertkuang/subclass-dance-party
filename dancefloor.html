@@ -4,7 +4,10 @@
     <title>Object Dance Party</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="stylesheet" type="text/css" href="animations.css" />
-    <script src="lib/jquery.js"></script>
+        <script src="lib/jquery.js"></script>
+
+    <script src="lib/jquery-ui-1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="lib/jquery-ui-1.11.4/jquery-ui.css">
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
     <script src="src/slidingDancer.js"></script>
@@ -13,7 +16,9 @@
     <script src="src/bouncingDancer.js"></script>
   </head>
   <body>
+
     <div class="topbar">
+
       <span class="title">object dance party</span>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">add a blinky dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeSlidingDancer">add a sliding dancer</a>
@@ -22,6 +27,10 @@
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="ImageDancer"> add an image dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BouncingDancer"> add a bouncing dancer</a>
       <a href="#" class="flipOutButton"> flip it</a>
+      <a href="#" class="changeBgButton"> Change Background </a>
+      <audio controls>
+      <source src="song.mp3" type="audio/mpeg">
+      </audio>
     </div>
     <div class="testBox"></div>
     <script src="src/init.js"></script>

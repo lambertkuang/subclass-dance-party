@@ -5,7 +5,7 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
-  background-image: url('background.jpg');
+  background-image: url('bg2.gif');
   background-size: 100% 100%;
 }
 body, a:link, a:visited, a:active{
@@ -28,12 +28,16 @@ body, a:link, a:visited, a:active{
   width: 50px;
   height: 50px;
   position:absolute;
+}
+.animated {
   transition: all 2s ease 0s;
 }
-
 .spinningDancer{
-  border-radius: 5px;
-  border-color: blue;
+  background-image: url('carlton.gif');
+  border: none;
+  width: 100px;
+  height: 100px;
+  background-size: 100% 100%;
 }
 
 @-webkit-keyframes morph {
@@ -69,12 +73,11 @@ body, a:link, a:visited, a:active{
   }
 }
 .slidingDancer{
-  border-color: green;
-  border-radius: 0;
-  -webkit-animation: morph 5s;
-  -moz-animation: morph 5s;
-  -o-animation: morph 5s;
-  animation: morph 5s;
+  background-image: url('runner.png');
+  border: none;
+  width: 100px;
+  height: 100px;
+  background-size: 100% 100%;
 }
 
 .imageDancer {
@@ -158,7 +161,11 @@ body, a:link, a:visited, a:active{
   }
 }
 .BouncingDancer {
-
+  background-image: url('stew.png');
+  border: none;
+  width: 100px;
+  height: 100px;
+  background-size: 100% 100%;
 }
 .flipped {
   -moz-transform: scaleX(-1);

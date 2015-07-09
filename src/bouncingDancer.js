@@ -1,6 +1,6 @@
 var BouncingDancer = function(top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
-  this.$node.addClass('BouncingDancer');
+  this.$node.addClass('BouncingDancer .animated');
   this.xTraj = Math.floor(Math.random() * 10 - 5);
   this.yTraj = Math.floor(Math.random() * 10 - 5);
 
@@ -10,6 +10,11 @@ BouncingDancer.prototype = Object.create(makeDancer.prototype);
 BouncingDancer.prototype.constructor = BouncingDancer;
 BouncingDancer.prototype.step = function() {
   makeDancer.prototype.step.apply(this, arguments);
+  if (this.$node.hasClass('flipped')) {
+    this.$node.removeClass('flipped');
+  } else {
+    this.$node.addClass('flipped');
+  }
   this.setPosition(this.top,this.left);
   this.setCenter(this.yTraj + this.top, this.xTraj + this.left);
 

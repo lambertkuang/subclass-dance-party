@@ -1,7 +1,8 @@
 $(document).ready(function(){
   window.dancers = [];
-  
-
+  window.backgrounds = ["background.jpg", "bg2.gif", "background3.jpg", "background4.jpg", "background5.jpg", "background6.jpg", "background7.png", "background8.jpg", "background9.jpg", "background10.jpg"];
+  window.currentBackground = 0;
+  $('body').css("background-image", "url(" + backgrounds[currentBackground] + ")");
   var distanceThreshold = 75;
   var checkPosition = function()
   {
@@ -32,6 +33,16 @@ $(document).ready(function(){
     dancer.$node.css("border-color", color);
   };
 
+  var nextBackground = function() {
+    if (currentBackground === backgrounds.length - 1)
+    {
+      currentBackground = 0;
+    } else {
+      currentBackground++;
+    }
+    $('body').css("background-image", "url(" + backgrounds[currentBackground] + ")");
+  }
+
   setInterval(checkPosition, 100);
   //Every 100 ms,
     //Check all dancers
@@ -61,13 +72,25 @@ $(document).ready(function(){
     var dancer = new dancerMakerFunction(
       $('body').height() - $("body").height() * .15*  Math.random() - dancerHeight,
       $("body").width() * Math.random(),
-      Math.random() * 1000
+      100
     );
     dancers.push(dancer);
     $('body').append(dancer.$node);
-
+    dancer.$node.draggable({
+      start: function() {
+        dancer.$node.removeClass('animated');
+      },
+      stop: function() {
+        dancer.$node.addClass('animated');
+      }
+    });
     dancer.$node.mouseover(function() {
       changeDancer(dancer, "blue");
+    });
+    dancer.$node.click(function() {
+      var dancerIndex = dancers.indexOf(dancer);
+      dancers.splice(dancerIndex, 1);
+      dancer.$node.remove();
     });
   });
 
@@ -83,6 +106,7 @@ $(document).ready(function(){
       //it's place in the array times the width found earlier.
       dancers[i].setCenter(newY, newX);
       dancers[i].setPosition(newY, newX);
+      dancers[i].pause = true;
     }
   });
   $(".flipOutButton").on("click", function(event) {
@@ -93,6 +117,9 @@ $(document).ready(function(){
         dancers[i].$node.addClass('flipped');
       }
     }
+  });
+  $(".changeBgButton").on("click", function(event) {
+    nextBackground();
   });
 });
 
